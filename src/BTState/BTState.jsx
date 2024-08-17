@@ -1,12 +1,20 @@
 import React, { useState } from "react";
-import data from "./dataglasses.json";
 
 export const BTState = () => {
   const [state, setState] = useState("./img/v1.png");
 
-  const handleGlasses = (url) => {
-    setState(url);
-  };
+  const glassesImages = [
+    "./img/v1.png",
+    "./img/v2.png",
+    "./img/v3.png",
+    "./img/v4.png",
+    "./img/v5.png",
+    "./img/v6.png",
+    "./img/v7.png",
+    "./img/v8.png",
+    "./img/v9.png",
+  ];
+
   return (
     <div
       style={{
@@ -23,7 +31,7 @@ export const BTState = () => {
           style={{
             display: "grid",
             position: "relative",
-            width: "fit-content",
+            width: "fit-content", 
           }}
         >
           <img
@@ -53,79 +61,19 @@ export const BTState = () => {
           className="mt-5 text-center"
           style={{ backgroundColor: "orange", borderRadius: 20 }}
         >
-          <button className="btn btn-success m-4">
-            <img
-              style={{ width: 50 }}
-              src="./img/v1.png"
-              alt="..."
-              onClick={() => setState("./img/v1.png")}
-            />
-          </button>
-          <button className="btn btn-success m-4">
-            <img
-              style={{ width: 50 }}
-              src="./img/v2.png"
-              alt="..."
-              onClick={() => setState("./img/v2.png")}
-            />
-          </button>
-          <button className="btn btn-success m-4">
-            <img
-              style={{ width: 50 }}
-              src="./img/v3.png"
-              alt="..."
-              onClick={() => setState("./img/v3.png")}
-            />
-          </button>
-          <button className="btn btn-success m-4">
-            <img
-              style={{ width: 50 }}
-              src="./img/v4.png"
-              alt="..."
-              onClick={() => setState("./img/v4.png")}
-            />
-          </button>
-          <button className="btn btn-success m-4">
-            <img
-              style={{ width: 50 }}
-              src="./img/v5.png"
-              alt="..."
-              onClick={() => setState("./img/v5.png")}
-            />
-          </button>
-          <br />
-          <button className="btn btn-success m-4">
-            <img
-              style={{ width: 50 }}
-              src="./img/v6.png"
-              alt="..."
-              onClick={() => setState("./img/v6.png")}
-            />
-          </button>
-          <button className="btn btn-success m-4">
-            <img
-              style={{ width: 50 }}
-              src="./img/v7.png"
-              alt="..."
-              onClick={() => setState("./img/v7.png")}
-            />
-          </button>
-          <button className="btn btn-success m-4">
-            <img
-              style={{ width: 50 }}
-              src="./img/v8.png"
-              alt="..."
-              onClick={() => setState("./img/v8.png")}
-            />
-          </button>
-          <button className="btn btn-success m-4">
-            <img
-              style={{ width: 50 }}
-              src="./img/v9.png"
-              alt="..."
-              onClick={() => setState("./img/v9.png")}
-            />
-          </button>
+          {glassesImages.map((imgSrc, index) => (
+            <button
+              key={index}
+              className="btn btn-success m-4"
+              onClick={() => setState(imgSrc)}
+            >
+              <img
+                style={{ width: 50 }}
+                src={imgSrc}
+                alt={`Glasses ${index + 1}`}
+              />
+            </button>
+          ))}
         </div>
       </div>
     </div>
